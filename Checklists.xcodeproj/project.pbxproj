@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BAB6CFD01DDFEF73002585ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB6CFCF1DDFEF73002585ED /* AppDelegate.swift */; };
-		BAB6CFD21DDFEF73002585ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB6CFD11DDFEF73002585ED /* ViewController.swift */; };
+		BAB6CFD21DDFEF73002585ED /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB6CFD11DDFEF73002585ED /* ChecklistViewController.swift */; };
 		BAB6CFD51DDFEF73002585ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAB6CFD31DDFEF73002585ED /* Main.storyboard */; };
 		BAB6CFD71DDFEF73002585ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAB6CFD61DDFEF73002585ED /* Assets.xcassets */; };
 		BAB6CFDA1DDFEF73002585ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAB6CFD81DDFEF73002585ED /* LaunchScreen.storyboard */; };
@@ -17,7 +17,7 @@
 /* Begin PBXFileReference section */
 		BAB6CFCC1DDFEF73002585ED /* Checklists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB6CFCF1DDFEF73002585ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BAB6CFD11DDFEF73002585ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BAB6CFD11DDFEF73002585ED /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
 		BAB6CFD41DDFEF73002585ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BAB6CFD61DDFEF73002585ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAB6CFD91DDFEF73002585ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				BAB6CFCF1DDFEF73002585ED /* AppDelegate.swift */,
-				BAB6CFD11DDFEF73002585ED /* ViewController.swift */,
+				BAB6CFD11DDFEF73002585ED /* ChecklistViewController.swift */,
 				BAB6CFD31DDFEF73002585ED /* Main.storyboard */,
 				BAB6CFD61DDFEF73002585ED /* Assets.xcassets */,
 				BAB6CFD81DDFEF73002585ED /* LaunchScreen.storyboard */,
@@ -96,6 +96,7 @@
 				TargetAttributes = {
 					BAB6CFCB1DDFEF73002585ED = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = C9L43P9G27;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -136,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAB6CFD21DDFEF73002585ED /* ViewController.swift in Sources */,
+				BAB6CFD21DDFEF73002585ED /* ChecklistViewController.swift in Sources */,
 				BAB6CFD01DDFEF73002585ED /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +261,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C9L43P9G27;
 				INFOPLIST_FILE = Checklists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jharveymorgan.Checklists;
@@ -272,6 +274,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C9L43P9G27;
 				INFOPLIST_FILE = Checklists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jharveymorgan.Checklists;
