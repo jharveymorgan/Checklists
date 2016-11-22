@@ -12,6 +12,8 @@
 		BAB6CFD51DDFEF73002585ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAB6CFD31DDFEF73002585ED /* Main.storyboard */; };
 		BAB6CFD71DDFEF73002585ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAB6CFD61DDFEF73002585ED /* Assets.xcassets */; };
 		BAB6CFDA1DDFEF73002585ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAB6CFD81DDFEF73002585ED /* LaunchScreen.storyboard */; };
+		BAEC6B541DE403A2003B947A /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEC6B531DE403A2003B947A /* ChecklistItem.swift */; };
+		BAEC6B561DE41A4A003B947A /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEC6B551DE41A4A003B947A /* AddItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		BAB6CFD61DDFEF73002585ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAB6CFD91DDFEF73002585ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAB6CFDB1DDFEF73002585ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAEC6B531DE403A2003B947A /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
+		BAEC6B551DE41A4A003B947A /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				BAB6CFCF1DDFEF73002585ED /* AppDelegate.swift */,
 				BAB6CFD11DDFEF73002585ED /* ChecklistViewController.swift */,
+				BAEC6B551DE41A4A003B947A /* AddItemViewController.swift */,
+				BAEC6B531DE403A2003B947A /* ChecklistItem.swift */,
 				BAB6CFD31DDFEF73002585ED /* Main.storyboard */,
 				BAB6CFD61DDFEF73002585ED /* Assets.xcassets */,
 				BAB6CFD81DDFEF73002585ED /* LaunchScreen.storyboard */,
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAB6CFD21DDFEF73002585ED /* ChecklistViewController.swift in Sources */,
+				BAEC6B561DE41A4A003B947A /* AddItemViewController.swift in Sources */,
+				BAEC6B541DE403A2003B947A /* ChecklistItem.swift in Sources */,
 				BAB6CFD01DDFEF73002585ED /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +310,7 @@
 				BAB6CFE01DDFEF73002585ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
