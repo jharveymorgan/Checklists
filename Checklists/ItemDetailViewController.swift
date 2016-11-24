@@ -12,9 +12,9 @@ import UIKit
 // ChecklistViewController is a delegate of ItemDetailViewController
 // any object that conforms to a certain protocol has to use stated methods
 protocol ItemDetailViewControllerDelegate: class {
-    func addItemViewControllerDidCancel(_ controller: ItemDetailViewController)
-    func addItemViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem)
-    func addItemViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem)
+    func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController)
+    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem)
+    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem)
 }
 
 class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
@@ -47,7 +47,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     // cancel button
     @IBAction func cancel() {
         // send addItemViewControllerDidCancel message to delegate
-        delegate?.addItemViewControllerDidCancel(self)
+        delegate?.itemDetailViewControllerDidCancel(self)
     }
     
     // done button
@@ -57,14 +57,14 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             item.text = textField.text!
             item.checked = false
             // send didFinishEditing message to delegate
-            delegate?.addItemViewController(self, didFinishEditing: item)
+            delegate?.itemDetailViewController(self, didFinishEditing: item)
         } else {
             // create new item from user input
             let item = ChecklistItem()
             item.text = textField.text!
             item.checked = false
             // send didFinishAdding message to delegate
-            delegate?.addItemViewController(self, didFinishAdding: item)
+            delegate?.itemDetailViewController(self, didFinishAdding: item)
         }
     }
     

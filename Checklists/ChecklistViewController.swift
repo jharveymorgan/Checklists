@@ -39,12 +39,12 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     }
     
     // functions listed in ItemDetailViewControllerDelegate
-    func addItemViewControllerDidCancel(_ controller: ItemDetailViewController) {
+    func itemDetailViewControllerDidCancel(_ controller: ItemDetailViewController) {
         // cancel button, dismiss the view
         dismiss(animated: true, completion: nil)
     }
     // done button
-    func addItemViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem) {
+    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem) {
         // find index of user inputed item and add it to the array of items
         let newRowIndex = items.count
         items.append(item)
@@ -59,7 +59,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         // save the checklist
         saveChecklistItems()
     }
-    func addItemViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem) {
+    func itemDetailViewController(_ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem) {
         // find row number for specific item
         if let index = items.index(of: item) {
             // replace the item's original row instead of creating a new row
@@ -209,7 +209,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         }
     }
 
-}//end glass
+}//end class
 
 /* 
  numberOfRows & cellForRow are part of TableView's data source protocol
