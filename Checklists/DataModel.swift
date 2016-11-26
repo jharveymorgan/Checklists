@@ -11,8 +11,25 @@ import Foundation
 class DataModel {
     var lists = [Checklist]()
     
+    // for UserDefaults and when showing last viewed list
+    var indexOfSelectedChecklist: Int {
+        // when indexOfSelectedChecklist gets read
+        get {
+            return UserDefaults.standard.integer(forKey: "ChecklistIndex")
+        }
+        // when new value gets put into indexOfSelectedChecklist 
+        set {
+            UserDefaults.standard.set(newValue, forKey: "ChecklistIndex")
+        }
+    }
+    
     init() {
         loadChecklists()
+        registerDefaults()
+        handleFirstTime()
+        
+        // print path to plist
+        print(documentsDirectory())
     }
     
     // methods to save user's data
@@ -53,6 +70,37 @@ class DataModel {
             lists = unarchiver.decodeObject(forKey: "Checklist") as! [Checklist]
             
             unarchiver.finishDecoding()
+            
+            // sort
+            sortChecklists()
         }
     }
-}
+    
+    // set default values for UserDefaults
+    func registerDefaults() {
+        let dictionary: [String: Any] = ["ChecklistIndex": -1, "FirstTime": true]
+        UserDefaults.standard.register(defaults: dictionary)
+    }
+    
+    // for when user opens app for the first time
+    func handleFirstTime() {
+        let userDefaults = UserDefaults.standard
+        let firstTime = userDefaults.bool(forKey: "FirstTime")
+        
+        // if user is using app for first time
+        if firstTime {
+            let checklist = Checklist(name: "List")
+            lists.append(checklist)
+            
+            indexOfSelectedChecklist = 0
+            userDefaults.set(false, forKey: "FirstTime")
+            userDefaults.synchronize()
+        }
+    }
+    
+    // sort checklists
+    func sortChecklists() {
+        // use closure and apply sorting formula
+        lists.sort(by: { checklist1, checklist2 in return checklist1.name.localizedStandardCompare(checklist2.name) == .orderedAscending })
+    }
+}// end class

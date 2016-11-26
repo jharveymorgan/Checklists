@@ -147,34 +147,6 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             }
         }
     }
-    
-    /*
-    
-    // save current checklist items
-    func saveChecklistItems() {
-        let data = NSMutableData()
-        // NSKeyedArchiver creates plist files
-        let archiver = NSKeyedArchiver(forWritingWith: data)
-        // encode array and items in it into binary that can be written to a file
-        archiver.encode(items, forKey: "ChecklistItems")
-        archiver.finishEncoding()
-        // write data to specified path
-        data.write(to: dataFilePath(), atomically: true)
-    }
-    
-    // load previous checklist items
-    func loadChecklistItems() {
-        // path to the file that hold's the user's data
-        let path = dataFilePath()
-        // try and load contents of the data file to the variable, if it exists execute following commands
-        if let data = try? Data(contentsOf: path) {
-            // decode the data file
-            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
-            // load entire contents of the array
-            items = unarchiver.decodeObject(forKey: "ChecklistItems") as! [ChecklistItem]
-            unarchiver.finishDecoding()
-        }
-    } */
 
 }//end class
 
