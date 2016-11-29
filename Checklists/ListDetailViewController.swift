@@ -17,7 +17,7 @@ protocol ListDetailViewControllerDelegate: class {
     func listDetailViewController(_ controller: ListDetailViewController, didFinishEditing checklist: Checklist)
 }
 
-class ListDetailViewController: UITableViewController, UITextFieldDelegate {
+class ListDetailViewController: UITableViewController, UITextFieldDelegate, IconPickerViewControllerDelegate {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
@@ -27,6 +27,14 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
     weak var delegate: ListDetailViewControllerDelegate?
     
     var checklistToEdit: Checklist?
+    var iconName = "Folder"
+    
+    // functions for IconPickerDelegate
+    func iconPicker(_ picker: IconPickerViewController, didPick iconName: String) {
+        self.iconName = iconName
+        iconImageView.image = UIImage(named: iconName)
+        let _ = navigationController?.popViewController(animated: true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +43,8 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
             title = "Edit Checklist"
             textField.text = checklist.name
             doneBarButton.isEnabled = true
+            iconName = checklist.iconName
+            iconImageView.image = UIImage(named: iconName)
         }
     }
     
@@ -72,14 +82,24 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
         // if checklist name is being edited
         if let checklist = checklistToEdit {
             checklist.name = textField.text!
+            checklist.iconName = iconName
             // send didFinishEditing message to delegate
             delegate?.listDetailViewController(self, didFinishEditing: checklist)
         } else {
             // create new checklist from user input
-            let checklist = Checklist(name: textField.text!)
+            let checklist = Checklist(name: textField.text!, iconName: iconName)
             // send didFinishAdding message to delegate
             delegate?.listDetailViewController(self, didFinishAdding: checklist)
         }
+    }
+    
+    // segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PickIcon" {
+            let controller = segue.destination as! IconPickerViewController
+            controller.delegate = self
+        }
+        
     }
 
 }

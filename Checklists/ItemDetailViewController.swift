@@ -60,9 +60,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
             delegate?.itemDetailViewController(self, didFinishEditing: item)
         } else {
             // create new item from user input
-            let item = ChecklistItem()
-            item.text = textField.text!
-            item.checked = false
+            let item = ChecklistItem(text: textField.text!, checked: false)
             // send didFinishAdding message to delegate
             delegate?.itemDetailViewController(self, didFinishAdding: item)
         }

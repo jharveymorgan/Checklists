@@ -14,6 +14,12 @@ class ChecklistItem: NSObject, NSCoding {
     var text = ""
     var checked = false
     
+    init(text: String, checked: Bool) {
+        self.text = text
+        self.checked = checked
+        super.init()
+    }
+    
     // toggle the checkmark if row/cell is tapped
     func toggleChecked() {
         checked = !checked
@@ -33,7 +39,4 @@ class ChecklistItem: NSObject, NSCoding {
         super.init()
     }
     
-    override init() {
-        super.init()
-    }
 }
