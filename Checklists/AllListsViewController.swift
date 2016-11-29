@@ -80,7 +80,10 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         } else {
             cell.detailTextLabel!.text = "\(count) Remaining"
         }
-
+        
+        // icon for a checklist
+        cell.imageView!.image = UIImage(named: checklist.iconName)
+        
         return cell
     }
     

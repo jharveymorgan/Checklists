@@ -21,6 +21,8 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    @IBOutlet weak var iconImageView: UIImageView!
+    
     
     weak var delegate: ListDetailViewControllerDelegate?
     
@@ -43,7 +45,12 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate {
     
     // user can't select cell with the textfield
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        return nil
+        // if user is trying to choose an icon, then the segue can be triggered. if any other section, they can't select the row
+        if indexPath.section == 1 {
+            return indexPath
+        } else {
+            return nil
+        }
     }
     
     // text field delegate to tell when text is being edited and if done button should be enabled
