@@ -14,9 +14,21 @@ class ChecklistItem: NSObject, NSCoding {
     var text = ""
     var checked = false
     
-    init(text: String, checked: Bool) {
+    // for local notifications
+    var dueDate = Date()
+    var shouldRemind = false
+    var itemID: Int
+    
+    /*init(text: String, checked: Bool) {
         self.text = text
         self.checked = checked
+        super.init()
+    } */
+    
+    // initilizer
+    override init() {
+        // asks DataModel for a new item ID whenever a new ChecklistItem is created
+        itemID = DataModel.nextChecklistItemID()
         super.init()
     }
     
@@ -29,6 +41,9 @@ class ChecklistItem: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(text, forKey: "Text")
         aCoder.encode(checked, forKey: "Checked")
+        aCoder.encode(dueDate, forKey: "DueDate")
+        aCoder.encode(shouldRemind, forKey: "ShouldRemind")
+        aCoder.encode(itemID, forKey: "ItemID")
     }
     
     // initializer
@@ -36,6 +51,9 @@ class ChecklistItem: NSObject, NSCoding {
         // load previous checklist items
         text = aDecoder.decodeObject(forKey: "Text") as! String
         checked = aDecoder.decodeBool(forKey: "Checked")
+        dueDate = aDecoder.decodeObject(forKey: "DueDate") as! Date
+        shouldRemind = aDecoder.decodeBool(forKey: "ShouldRemind")
+        itemID = aDecoder.decodeInteger(forKey: "ShouldREemind")
         super.init()
     }
     

@@ -7,9 +7,11 @@
 //
 
 import UIKit
+// for local notifications
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     
@@ -21,10 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // share app's dataModel with AllLists's dataModel
         let navigationController = window!.rootViewController as! UINavigationController
-            
         let controller = navigationController.viewControllers[0] as! AllListsViewController
-            
         controller.dataModel = dataModel
+        
+        // object to keep track of all local notifications and make them appear when necessary
+        let center = UNUserNotificationCenter.current()
+        // tell UNUserNotificationCenter that AppDelegate is not its delegate
+        center.delegate = self
         
         return true
     }
@@ -51,6 +56,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         saveData()
+    }
+    
+    // when local notification is posted and the app is open
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("Recieved local notification: \(notification)")
     }
     
     // function to save all data

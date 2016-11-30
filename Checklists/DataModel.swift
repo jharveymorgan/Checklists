@@ -17,7 +17,7 @@ class DataModel {
         get {
             return UserDefaults.standard.integer(forKey: "ChecklistIndex")
         }
-        // when new value gets put into indexOfSelectedChecklist 
+        // when new value is put into indexOfSelectedChecklist 
         set {
             UserDefaults.standard.set(newValue, forKey: "ChecklistIndex")
         }
@@ -78,7 +78,7 @@ class DataModel {
     
     // set default values for UserDefaults
     func registerDefaults() {
-        let dictionary: [String: Any] = ["ChecklistIndex": -1, "FirstTime": true]
+        let dictionary: [String: Any] = ["ChecklistIndex": -1, "FirstTime": true, "ChecklistItemID": 0]
         UserDefaults.standard.register(defaults: dictionary)
     }
     
@@ -102,5 +102,17 @@ class DataModel {
     func sortChecklists() {
         // use closure and apply sorting formula
         lists.sort(by: { checklist1, checklist2 in return checklist1.name.localizedStandardCompare(checklist2.name) == .orderedAscending })
+    }
+    
+    // use class so that this function can be used without referencing DataModel object
+    class func nextChecklistItemID() -> Int {
+        let userDefaults = UserDefaults.standard
+        // get current ChecklistItemID from UserDefaults and add 1
+        let itemID = userDefaults.integer(forKey: "ChecklistItemID")
+        userDefaults.set(itemID + 1, forKey: "ChecklistItemID")
+        // update the changes immediately
+        userDefaults.synchronize()
+        
+        return itemID
     }
 }// end class
