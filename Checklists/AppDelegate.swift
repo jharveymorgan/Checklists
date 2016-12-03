@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         // object to keep track of all local notifications and make them appear when necessary
         let center = UNUserNotificationCenter.current()
-        // tell UNUserNotificationCenter that AppDelegate is not its delegate
+        // tell UNUserNotificationCenter that AppDelegate is now its delegate
         center.delegate = self
         
         return true

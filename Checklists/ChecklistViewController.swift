@@ -121,8 +121,12 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     func configureText(for cell: UITableViewCell, with item: ChecklistItem) {
         // variable to access/change label on a cell with a certain tag
         let label = cell.viewWithTag(11) as! UILabel
+        
         // set text
-        label.text = item.text
+        //label.text = item.text
+        
+        // TEST:
+        label.text = "\(item.itemID): \(item.text)"
     }
     
     // segue to other view
